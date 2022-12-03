@@ -34,6 +34,18 @@ def sellOneProduct(idProduct):
     query='''UPDATE productList SET quant = case when (quant - 1) >0 then (quant - 1) else quant end WHERE id_product = ?'''
     val=(idProduct,)
     execute(query,val)
+
+def sellProduct(idProduct,quant):
+    prod= getOneProduct(idProduct)
+
+    if prod.Quant==0:
+        return 0
+    else:
+        query='''UPDATE productList SET quant = case when (quant - ?) >0 then (quant - ?) else quant end WHERE id_product = ?'''
+        val=(quant,quant,idProduct)
+        execute(query,val)
+        return 1;
+    
     
 
 def execute(query,val):

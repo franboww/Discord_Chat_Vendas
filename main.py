@@ -147,8 +147,8 @@ async def quickSale(interaction: discord.Interaction, id_product: str):
 )
 async def addSale(interaction: discord.Interaction, id_product: str, quant_venda: str):
     #Cria task e salva no banco
-    interactions.sellProd(id_product,quant_venda)
-    await interaction.response.send_message(f"{interaction.user} - Vendeu um produto")
+    message =interactions.sellProd(id_product,quant_venda)
+    await interaction.response.send_message(f"{interaction.user} - {message}")
 
 
 aclient.run(token_bot)

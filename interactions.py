@@ -30,3 +30,11 @@ def viewAllProduct():
     
 def sellOne(idProduct):
     inventoryDB.sellOneProduct(idProduct)
+
+def sellProd(idProduct,quant):
+    prodQuant=inventoryDB.sellProduct(idProduct,quant)
+    
+    if prodQuant==0:
+        return "Venda não realizada pois o produto tem estoque vazio"
+    else:
+        return"Vendeu um produto"
