@@ -44,7 +44,6 @@ async def addProduct(interaction: discord.Interaction, id_product:int,product_na
     new_quant='Nova quantidade do produto A SER ADICIONADA ao estoque atual',
 )
 async def updateProductQuant(interaction: discord.Interaction, id_product: str, new_quant: int):
-    #Cria task e salva no banco
     interactions.updateProductQuant(id_product,new_quant)
     await interaction.response.send_message(f"{interaction.user} - atualizou a quantidade de um produto")
 
@@ -55,7 +54,6 @@ async def updateProductQuant(interaction: discord.Interaction, id_product: str, 
     new_descr='Nova descrição do produto',
 )
 async def updateProductDescri(interaction: discord.Interaction, id_product: str, new_descr: str):
-    #Cria task e salva no banco
     interactions.updateProductDescription(id_product,new_descr)
     await interaction.response.send_message(f"{interaction.user} - atualizou a descrição de um produto")
 
@@ -95,7 +93,6 @@ async def getOne(interaction: discord.Interaction, product_id:int):
     product_id='Id do produto a ser deletado'
 )
 async def deleteProduc(interaction: discord.Interaction, product_id: int):
-    #Cria task e salva no banco
     interactions.removeProduct(product_id)
     await interaction.response.send_message(f"{interaction.user} - deletou um produto!")
 
@@ -136,7 +133,6 @@ async def showEmpty(interaction: discord.Interaction):
     id_product='Id do produto vendido'
 )
 async def quickSale(interaction: discord.Interaction, id_product: str):
-    #Cria task e salva no banco
     interactions.sellOne(id_product)
     await interaction.response.send_message(f"{interaction.user} - Vendeu um produto")
 
@@ -146,7 +142,6 @@ async def quickSale(interaction: discord.Interaction, id_product: str):
     quant_venda="Quantidade vendida do produto"
 )
 async def addSale(interaction: discord.Interaction, id_product: str, quant_venda: str):
-    #Cria task e salva no banco
     message =interactions.sellProd(id_product,quant_venda)
     await interaction.response.send_message(f"{interaction.user} - {message}")
 
