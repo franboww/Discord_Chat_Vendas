@@ -5,8 +5,8 @@ from produto import Product
 from discord import app_commands
 from table2ascii import table2ascii as t2a, PresetStyle
 
-id_do_servidor =  1036647357615452251
-token_bot="MTAzNjY0NjQ2MzU4Mjc2NTA1Ng.G_UFzB.jmwoHk5wiNZjwSdDlJHeUI9ualCig83PNkP4Xs"
+id_do_servidor =  12345
+token_bot="111111"
 
 class client(discord.Client):
     def __init__(self):
