@@ -140,5 +140,15 @@ async def quickSale(interaction: discord.Interaction, id_product: str):
     interactions.sellOne(id_product)
     await interaction.response.send_message(f"{interaction.user} - Vendeu um produto")
 
+@tree.command(guild = discord.Object(id=id_do_servidor), name = 'make_sale', description='Faz uma venda, retirando a quantidade informada pelo vendedor do estoque do produto escolhido')
+@app_commands.describe(
+    id_product='Id do produto vendido',
+    quant_venda="Quantidade vendida do produto"
+)
+async def addSale(interaction: discord.Interaction, id_product: str, quant_venda: str):
+    #Cria task e salva no banco
+    interactions.sellProd(id_product,quant_venda)
+    await interaction.response.send_message(f"{interaction.user} - Vendeu um produto")
+
 
 aclient.run(token_bot)
